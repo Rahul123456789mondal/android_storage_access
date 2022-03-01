@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         val takePhoto = registerForActivityResult(ActivityResultContracts.TakePicturePreview()) {
             val isPrivate = binding.switchPrivate.isChecked
             if(isPrivate) {
-                val isSavedSuccessfully = savePhotoToInternalStorage(UUID.randomUUID().toString(), it)
+                val isSavedSuccessfully = savePhotoToInternalStorage(UUID.randomUUID().toString(), it!!)
                 if(isSavedSuccessfully) {
                     loadPhotosFromInternalStorageIntoRecyclerView()
                     Toast.makeText(this, "Photo saved successfully", Toast.LENGTH_SHORT).show()
